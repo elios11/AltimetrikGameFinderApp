@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+body {
+    font-family: "Archivo", sans-serif;
+}
+
+input,
+button {
+    font-family: "Archivo", sans-serif;
+}
