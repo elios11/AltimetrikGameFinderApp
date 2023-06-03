@@ -1,0 +1,19 @@
+:root {
+    /* Primary Colors */
+    --primary-color-1: #bf5fe1; /* Light violet */
+    --primary-color-2: #6a20b4; /* Dark violet */
+
+    /* Secondary Colors */
+    --secondary-color-1: #efc0ff; /* Cool pink */
+    --secondary-color-2: #875cff; /* Bright purple */
+    --secondary-color-3: #39067b; /* Deep purple */
+    --secondary-color-4: #fb5f5f; /* Coral reef */
+    --secondary-color-5: #ffdc22; /* Hey honey */
+
+    /* Neutral Colors */
+    --neutral-color-1: #151515; /* Darkest gray */
+    --neutral-color-2: #1b1b1b; /* Dark gray */
+    --neutral-color-3: #515151; /* Medium gray */
+    --neutral-color-4: #939393; /* Light gray */
+    --neutral-color-5: #ffffff; /* White */
+}
