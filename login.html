@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="styles/login.css" />
+        <title>Login | Game Finder</title>
+    </head>
+    <body>
+        <img class="logo" src="/img/brand/light-logo.svg" alt="" />
+        <section class="login-card">
+            <div class="login-card--background"></div>
+            <h1>Welcome! Log in or register</h1>
+            <h2>Log in to find the games you're looking for!</h2>
+            <form action="#">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    autocomplete="email"
+                    id="email"
+                    required
+                />
+                <div class="password-container">
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        autocomplete="current-password"
+                        id="password"
+                        required
+                    />
+                    <img
+                        src="/img/login/show_pwd_icon.svg"
+                        alt="toggle show password"
+                    />
+                </div>
+                <div class="password-details-container">
+                    <input
+                        type="checkbox"
+                        name="rememberPwd"
+                        id="rememberPwd"
+                    />
+                    <div class="remember-info-container">
+                        <img src="/img/components/checkbox_icon.svg" />
+                        <label for="rememberPwd"> Remember me </label>
+                    </div>
+                    <a href="#" class="forgot-password-link">
+                        Forgot password?
+                    </a>
+                </div>
+                <button type="submit" id="loginBtn">Log in</button>
+                <div class="register-section">
+                    <p>Not registered yet?</p>
+                    <a href="#">Register now</a>
+                </div>
+            </form>
+
+            <div class="divisor">
+                <hr />
+                <span>or</span>
+                <hr />
+            </div>
+            <div class="social-media-login">
+                <div>
+                    <button type="button">Login with Facebook</button>
+                    <img
+                        src="/img/login/social-media-icons/Facebook.svg"
+                        alt="Log in with Facebook"
+                    />
+                </div>
+                <div>
+                    <button type="button">Login with Twitter</button>
+                    <img
+                        src="/img/login/social-media-icons/Tumblr.svg"
+                        alt="Log in with Twitter"
+                    />
+                </div>
+                <div>
+                    <button type="button">Login with Google</button>
+                    <img
+                        src="/img/login/social-media-icons/Google.svg"
+                        alt="Log in with Google"
+                    />
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
