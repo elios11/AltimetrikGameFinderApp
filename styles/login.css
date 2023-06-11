@@ -9,6 +9,7 @@ body {
     background-image: url("/img/login/bg_dark.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 
     display: flex;
     justify-content: end;
@@ -27,7 +28,7 @@ button {
 }
 
 .login-card {
-    background-color: rgba(23, 23, 23, 0.8);
+    position: relative;
     border-radius: 0.75rem;
     color: #ffffff;
     width: 22.625rem;
@@ -35,6 +36,19 @@ button {
     padding: 2.5rem 3.125rem;
     margin-right: 6.25rem;
     margin-top: 11.175rem;
+}
+
+.login-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(23, 23, 23, 0.8);
+    border-radius: 0.75rem;
+    z-index: -1;
 }
 
 form {
@@ -96,7 +110,6 @@ form input {
 
 /* PASSWORD DATA */
 .remember-info-container label {
-    line-height: 1.188rem;
     margin-left: 1rem;
     font-weight: 400;
 }
@@ -109,15 +122,15 @@ form input {
 .forgot-password-link {
     color: var(--primary-color-1);
     text-decoration: none;
+    line-height: 1.4rem;
 }
 
 .password-details-container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.4rem;
     font-size: 0.875rem;
     font-family: "Open Sans", sans-serif;
-    align-items: end;
 }
 
 .remember-info-container {
@@ -145,7 +158,6 @@ form input {
 }
 
 .register-section p {
-    margin-left: 0.5rem;
     margin-left: 4.1rem;
 }
 
@@ -187,10 +199,9 @@ form input {
     border: 0.125rem solid white;
     font-weight: 700;
     font-size: 1.125rem;
-    padding: 0.715rem 0;
+    padding: 0.715rem 0 0.715rem 6.39rem;
     border-radius: 0.375rem;
     text-align: left;
-    padding-left: 6.39rem;
 }
 
 .social-media-login div {
@@ -202,4 +213,103 @@ form input {
     position: absolute;
     transform: translateY(50%);
     left: 3.69rem;
+}
+
+/* RESPONSIVENESS */
+/* Mobile screen */
+@media (320px <= width <= 767px) {
+    body {
+        overflow-y: hidden;
+    }
+    .logo {
+        top: 1.05rem;
+        left: 3.15rem;
+        width: 12.5rem;
+    }
+
+    .login-card {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 7.8rem 1rem 100% 1rem;
+    }
+
+    .login-card::before {
+        border-radius: 0;
+    }
+
+    h1 {
+        margin-bottom: 0.32rem;
+    }
+
+    h2 {
+        font-size: 0.875rem;
+        margin-bottom: 2.3rem;
+    }
+
+    form input {
+        padding: 1rem 0.8rem;
+    }
+
+    .password-container {
+        margin-bottom: 0.975rem;
+    }
+
+    .remember-info-container label {
+        margin-left: 0.6rem;
+    }
+
+    .password-details-container {
+        margin-bottom: 1.75rem;
+    }
+
+    .register-section {
+        justify-content: space-between;
+        padding: 0 2.1rem;
+        margin-bottom: 1.05rem;
+    }
+
+    .register-section p {
+        margin-left: 0.3rem;
+    }
+
+    .register-section a {
+        margin-right: 0rem;
+    }
+
+    .divisor {
+        margin-bottom: 0.95rem;
+    }
+
+    .divisor span {
+        margin: 0 1.2rem;
+    }
+
+    .social-media-login {
+        row-gap: 0.89rem;
+    }
+
+    .social-media-login button {
+        font-size: 0.875rem;
+        padding: 0.92rem 0 0.92rem 4.9rem;
+    }
+
+    .social-media-login div img {
+        left: 2.9rem;
+    }
+}
+
+/* Tablet screen */
+@media (768px <= width <= 992px) {
+    .login-card {
+        margin: 12.6rem 9.5rem 2rem 9.5rem;
+    }
+
+    .logo {
+        align-self: center;
+        left: 50%;
+        transform: translateX(-55%);
+        top: 2.9rem;
+        width: 14.375rem;
+    }
 }
