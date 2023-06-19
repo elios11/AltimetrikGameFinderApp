@@ -9,8 +9,8 @@ body {
     background-image: url("/img/login/bg_dark.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
 
+    color: var(--neutral-color-5);
     display: flex;
     justify-content: end;
     align-items: center;
@@ -21,6 +21,11 @@ body {
     position: absolute;
     top: 1.55rem;
     left: 1.375rem;
+    width: 11.125rem;
+}
+
+.light-logo {
+    display: none;
 }
 
 button {
@@ -30,12 +35,11 @@ button {
 .login-card {
     position: relative;
     border-radius: 0.75rem;
-    color: #ffffff;
     width: 22.625rem;
     height: 38.875rem;
     padding: 2.5rem 3.125rem;
     margin-right: 6.25rem;
-    margin-top: 11.175rem;
+    margin-top: 12.4%;
 }
 
 .login-card::before {
@@ -92,10 +96,17 @@ h2 {
     width: 100%;
 }
 
-.password-container img {
+#password[type="password"]:not(:placeholder-shown) {
+    font-size: 2.5rem;
+    padding: 0.13rem 1rem 0.13rem 0.9rem;
+    letter-spacing: -3.3px;
+}
+
+.password-container svg {
     position: absolute;
     width: 1.5rem;
-    transform: translateY(50%);
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
     right: 0.5rem;
 }
@@ -104,16 +115,15 @@ form input {
     border-radius: 4px;
     padding: 1rem 1rem;
     border: none;
-    color: var(--neutral-color-4);
+    color: #3d3d3d;
     font-size: 0.875rem;
 }
 
-/* PASSWORD DATA */
-.remember-info-container label {
-    margin-left: 1rem;
-    font-weight: 400;
+form input:focus-visible {
+    outline: 1px solid var(--primary-color-1);
 }
 
+/* PASSWORD DATA */
 #rememberPwd {
     visibility: hidden;
     position: absolute;
@@ -133,9 +143,19 @@ form input {
     font-family: "Open Sans", sans-serif;
 }
 
-.remember-info-container {
+#remember-info-label {
     display: flex;
     align-items: center;
+}
+#remember-info-label svg {
+    margin-right: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    align-self: start;
+}
+
+#remember-info-label svg:nth-of-type(2) {
+    display: none;
 }
 
 #loginBtn {
@@ -154,17 +174,17 @@ form input {
     justify-content: space-evenly;
     font-family: "Open Sans", sans-serif;
     font-size: 0.875rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.45rem;
 }
 
 .register-section p {
-    margin-left: 4.1rem;
+    margin-left: 4rem;
 }
 
 .register-section a {
     color: var(--primary-color-1);
     text-decoration: none;
-    margin-right: 3.75rem;
+    margin-right: 3.78rem;
 }
 
 /* DIVISOR */
@@ -199,9 +219,10 @@ form input {
     border: 0.125rem solid white;
     font-weight: 700;
     font-size: 1.125rem;
-    padding: 0.715rem 0 0.715rem 6.39rem;
+    padding: 0.715rem 0 0.715rem 6.35rem;
     border-radius: 0.375rem;
     text-align: left;
+    cursor: pointer;
 }
 
 .social-media-login div {
@@ -209,21 +230,27 @@ form input {
     display: inline-grid;
 }
 
-.social-media-login div img {
+.social-media-login div svg {
     position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
     transform: translateY(50%);
     left: 3.69rem;
+    width: 1.5rem;
 }
 
 /* RESPONSIVENESS */
 /* Mobile screen */
 @media (320px <= width <= 767px) {
     body {
-        overflow-y: hidden;
+        justify-content: center;
     }
+
     .logo {
+        align-self: center;
+        left: 50%;
+        transform: translateX(-55%);
         top: 1.05rem;
-        left: 3.15rem;
         width: 12.5rem;
     }
 
@@ -231,7 +258,7 @@ form input {
         width: 100%;
         height: 100%;
         margin: 0;
-        padding: 7.8rem 1rem 100% 1rem;
+        padding: 7.8rem 1rem 20% 1rem;
     }
 
     .login-card::before {
@@ -255,8 +282,8 @@ form input {
         margin-bottom: 0.975rem;
     }
 
-    .remember-info-container label {
-        margin-left: 0.6rem;
+    #remember-info-label svg {
+        margin-right: 0.6rem;
     }
 
     .password-details-container {
@@ -294,15 +321,52 @@ form input {
         padding: 0.92rem 0 0.92rem 4.9rem;
     }
 
-    .social-media-login div img {
+    .social-media-login div svg {
         left: 2.9rem;
+    }
+}
+
+@media (380px < width < 526px) and (height > 700px) {
+    .login-card {
+        padding: 7.8rem 1rem 50% 1rem;
+    }
+}
+
+@media (380px < width < 526px) and (height > 875px) {
+    .login-card {
+        padding: 7.8rem 1rem 55% 1rem;
+    }
+}
+
+@media (526px <= width < 768px) {
+    body {
+        justify-content: center;
+    }
+
+    .login-card {
+        margin: 20% 10%;
+        border-radius: 0.5rem;
+        padding: 3rem;
+    }
+
+    .login-card::before {
+        border-radius: 0.5rem;
+    }
+
+    .register-section {
+        justify-content: center;
+        gap: 1rem;
     }
 }
 
 /* Tablet screen */
 @media (768px <= width <= 992px) {
+    body {
+        justify-content: center;
+    }
+
     .login-card {
-        margin: 12.6rem 9.5rem 2rem 9.5rem;
+        margin: 26.2% 20% 10% 20%;
     }
 
     .logo {
@@ -311,5 +375,94 @@ form input {
         transform: translateX(-55%);
         top: 2.9rem;
         width: 14.375rem;
+    }
+}
+
+/* Desktop screens */
+@media (992px <= width <= 1200px) {
+    html {
+        font-size: 15px;
+    }
+
+    body {
+        justify-content: center;
+    }
+
+    .login-card {
+        margin: 20% 20% 10% 20%;
+    }
+
+    .logo {
+        align-self: center;
+        left: 50%;
+        transform: translateX(-55%);
+        top: 2.9rem;
+        width: 14.375rem;
+    }
+}
+
+@media (width >= 1500px) {
+    #password[type="password"]:not(:placeholder-shown) {
+        font-size: 2.5rem;
+        padding: 0.15rem 1rem 0.02rem 0.9rem;
+        letter-spacing: -3.3px;
+    }
+}
+
+@media (width >= 1800px) {
+    body {
+        background-image: url("/img/login/bg_dark_2x.png");
+    }
+
+    .login-card {
+        margin-bottom: 12.5%;
+    }
+}
+
+@media (1200px < width < 1660px) and (700px < height < 1000px) {
+    .login-card {
+        margin-top: 8%;
+    }
+}
+
+@media (1200px < width < 1400px) and (height < 1000px) {
+    .login-card {
+        margin-top: 3%;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-image: url("/img/login/bg_light.png");
+        color: var(--neutral-color-3);
+    }
+
+    .light-logo {
+        display: block;
+    }
+
+    .dark-logo {
+        display: none;
+    }
+
+    .login-card::before {
+        background-color: rgba(240, 240, 240, 0.8);
+    }
+
+    #remember-info-label svg:first-of-type rect {
+        stroke: #8f8f8f;
+    }
+
+    .divisor hr {
+        background-color: black;
+    }
+
+    .social-media-login button {
+        border-color: var(--primary-color-1);
+        color: var(--primary-color-1);
+    }
+
+    .social-media-login svg path {
+        fill: var(--primary-color-1);
     }
 }
