@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@400;500;700&display=swap");
+@import "colors.css";
+
+body {
+    background-color: var(--neutral-color-1);
+    color: var(--neutral-color-5);
+}
+
+/* Navbar menu */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--neutral-color-2);
+    height: 3.125rem;
+    margin-bottom: 1.3rem;
+}
+
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    width: 1.1rem;
+    height: 1.5rem;
+    margin-left: 1.2rem;
+    border: 0;
+    background: transparent;
+    gap: 0.25rem;
+}
+
+.burger-menu div {
+    background-color: white;
+    height: 0.125rem;
+    width: 100%;
+    border-radius: 0.3rem;
+    transition: all 0.5s;
+    transform-origin: left;
+}
+
+.burger-menu:hover div.active:first-child {
+    transform: rotate(45deg);
+}
+
+.burger-menu:hover div.active:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu:hover div.active:last-child {
+    transform: rotate(-45deg);
+}
+
+.logo {
+    width: 6.4rem;
+    margin-right: 0.7rem;
+}
+
+.logo a {
+    display: block;
+}
+
+#searchIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 1rem;
+}
+
+/* Main content */
+main {
+    padding: 0 1rem 1.625rem 1rem;
+}
+
+h1 {
+    font-size: 1.75rem;
+    line-height: 1.625rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+}
+
+h2 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: var(--neutral-color-4);
+    margin-bottom: 1.95rem;
+}
+
+/* Cards */
+.game-card {
+    background-color: #303030;
+    border-radius: 0.75rem;
+}
+
+.game-card--img-container {
+    width: 18rem;
+    height: 11.125rem;
+}
+
+/* Card image */
+.game-card--img-container,
+.game-card--img-container img {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+.game-card:not(:last-of-type) {
+    margin-bottom: 0.95rem;
+}
+
+.game-card--img-container {
+    position: relative;
+    margin-bottom: 0.8rem;
+}
+
+.favoriteHeart {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.25rem;
+}
+/* Card body */
+.game-card--body {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.game-card--body div {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.game-card--body div:not(:first-of-type) {
+    line-height: 0.9rem;
+}
+
+.game-card--title-section {
+    margin-bottom: 1.1rem;
+}
+
+.game-card--title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.game-card--id {
+    font-family: "Exo", sans-serif;
+    font-size: 1.125rem;
+    color: var(--primary-color-1);
+}
+
+.game-card--info {
+    color: var(--neutral-color-4);
+    font-weight: 400;
+}
+
+.game-card--info-release {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.game-card--info-release:first-child {
+    margin-bottom: 0.8rem;
+}
+
+.game-card--info-content {
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: white;
+}
+
+.game-card--img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.platforms-container {
+    padding: 1rem;
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.platforms-container svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.platforms-container svg path {
+    fill: white;
+}
