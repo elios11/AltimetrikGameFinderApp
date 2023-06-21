@@ -12,6 +12,10 @@ body {
 
 h1,
 h2,
+h3,
+h4,
+h5,
+h6,
 p {
     margin: 0;
 }
@@ -27,6 +31,20 @@ button {
 
 button:hover {
     opacity: 0.9;
+}
+
+.light-logo {
+    display: none;
+}
+
+@media (prefers-color-scheme: light) {
+    .light-logo {
+        display: block;
+    }
+
+    .dark-logo {
+        display: none;
+    }
 }
 
 @media (min-width: 1500px) {

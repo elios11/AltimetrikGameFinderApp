@@ -24,10 +24,6 @@ body {
     width: 11.125rem;
 }
 
-.light-logo {
-    display: none;
-}
-
 button {
     color: var(--neutral-color-5);
 }
@@ -435,14 +431,6 @@ form input:focus-visible {
     body {
         background-image: url("/img/login/bg_light.png");
         color: var(--neutral-color-3);
-    }
-
-    .light-logo {
-        display: block;
-    }
-
-    .dark-logo {
-        display: none;
     }
 
     .login-card::before {
