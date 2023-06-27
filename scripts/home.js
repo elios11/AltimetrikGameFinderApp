@@ -114,26 +114,28 @@
                         <img src="${element.background_image}" alt="${element.name} cover picture">
                         ${favoriteHeart}
                     </div>
-                    <div class="game-card--body">
-                        <div class="game-card--title-section">
-                            <h3 class="game-card--title">${element.name}</h3>
-                            <p class="game-card--id">#${element.id}</p>
-                        </div>
-                        <div class="game-card--info">
-                            <h5 class="game-card--info-release">Release date:</h5>
-                            <h6 class="game-card--info-content">
-                                ${releaseDate}
-                            </h6>
-                        </div>
-                        <div class="game-card--info">
-                            <h5 class="game-card--info-release">Genres:</h5>
-                            <h6 class="game-card--info-content">
-                                ${genres.join(", ")}
-                            </h6>
-                        </div>
+                    <div class="game-card--title-section">
+                        <h3 class="game-card--title">${element.name}</h3>
+                        <p class="game-card--id">#${element.id}</p>
                     </div>
-                    <div class="platforms-container">
-                        ${platforms.join("")}
+                    <div class="game-card--body">
+                        <div class="game-card--info-container">
+                            <div class="game-card--info">
+                                <h5 class="game-card--info-release">Release date:</h5>
+                                <h6 class="game-card--info-content">
+                                    ${releaseDate}
+                                </h6>
+                            </div>
+                            <div class="game-card--info">
+                                <h5 class="game-card--info-release">Genres:</h5>
+                                <h6 class="game-card--info-content">
+                                    ${genres.join(", ")}
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="platforms-container">
+                            ${platforms.join("")}
+                        </div>
                     </div>
                 </div>
             `;
