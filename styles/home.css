@@ -13,10 +13,10 @@ body {
     align-items: center;
     background-color: var(--neutral-color-2);
     height: 3.125rem;
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.35rem;
 }
 
-.burger-menu {
+.hamburger-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,7 +29,7 @@ body {
     gap: 0.25rem;
 }
 
-.burger-menu div {
+.hamburger-menu div {
     background-color: white;
     height: 0.125rem;
     width: 100%;
@@ -38,15 +38,15 @@ body {
     transform-origin: left;
 }
 
-.burger-menu:hover div.active:first-child {
+.hamburger-menu div.active:first-child {
     transform: rotate(45deg);
 }
 
-.burger-menu:hover div.active:nth-child(2) {
+.hamburger-menu div.active:nth-child(2) {
     opacity: 0;
 }
 
-.burger-menu:hover div.active:last-child {
+.hamburger-menu div.active:last-child {
     transform: rotate(-45deg);
 }
 
@@ -65,16 +65,32 @@ body {
     margin-right: 1rem;
 }
 
+.search-bar-desktop {
+    display: none;
+}
+
+.logout-btn {
+    display: none;
+}
+
+.navbar > .profile-img {
+    display: none;
+}
+
 /* Main content */
 main {
     padding: 0 1rem 1.625rem 1rem;
+}
+
+main .tablet {
+    display: none;
 }
 
 h1 {
     font-size: 1.75rem;
     line-height: 1.625rem;
     font-weight: 800;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
 }
 
 h2 {
@@ -85,15 +101,75 @@ h2 {
     margin-bottom: 1.95rem;
 }
 
+/* Menu */
+.main-menu {
+    display: none;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: var(--neutral-color-5);
+}
+
+.main-menu--main-pages {
+    margin-top: 5rem;
+    margin-bottom: 1.9rem;
+}
+
+.main-menu--main-pages:not(:last-child) h3 {
+    margin-bottom: 0.9rem;
+}
+
+.main-menu--main-pages a:first-of-type {
+    color: var(--primary-color-1);
+}
+
+.main-menu h3 {
+    font-size: 0.9215rem;
+}
+
+.main-menu h4 {
+    font-size: 0.83rem;
+    font-weight: 400;
+}
+
+.main-menu--trending {
+    margin-bottom: 2.5rem;
+}
+
+.main-menu--trending > div,
+.main--menu-popular > div {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.main-menu--trending > div:not(:last-of-type),
+.main--menu-popular > div:not(:last-of-type) {
+    margin-bottom: 0.8rem;
+}
+
+.main--menu-popular > h3 {
+    margin-bottom: 1.2rem;
+}
+
 /* Cards */
+#cardsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
 .game-card {
     background-color: #303030;
+    width: 18rem;
     border-radius: 0.75rem;
 }
 
 .game-card--img-container {
-    width: 18rem;
-    height: 11.125rem;
+    width: 100%;
+    height: 11.2rem;
 }
 
 /* Card image */
@@ -103,13 +179,9 @@ h2 {
     border-top-right-radius: 0.75rem;
 }
 
-.game-card:not(:last-of-type) {
-    margin-bottom: 0.95rem;
-}
-
 .game-card--img-container {
     position: relative;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.75rem;
 }
 
 .favoriteHeart {
@@ -117,14 +189,15 @@ h2 {
     top: 0.45rem;
     right: 0.25rem;
 }
+
 /* Card body */
 .game-card--body {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding: 0 1rem 0.6rem 1rem;
     margin-bottom: 0.5rem;
 }
 
-.game-card--body div {
+.game-card--body > div:not(:last-of-type),
+.game-card--title-section {
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
@@ -135,7 +208,9 @@ h2 {
 }
 
 .game-card--title-section {
-    margin-bottom: 1.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
 }
 
 .game-card--title {
@@ -149,7 +224,15 @@ h2 {
     color: var(--primary-color-1);
 }
 
+.game-card--info-container {
+    flex-direction: column;
+}
+
 .game-card--info {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+
     color: var(--neutral-color-4);
     font-weight: 400;
 }
@@ -160,7 +243,7 @@ h2 {
 }
 
 .game-card--info-release:first-child {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.35rem;
 }
 
 .game-card--info-content {
@@ -177,10 +260,8 @@ h2 {
 }
 
 .platforms-container {
-    padding: 1rem;
-    padding-top: 0;
     display: flex;
-    align-items: center;
+    margin-top: 0.8rem;
     gap: 1rem;
 }
 
@@ -191,4 +272,304 @@ h2 {
 
 .platforms-container svg path {
     fill: white;
+}
+
+/* Tablet size */
+@media (min-width: 700px) {
+    .navbar {
+        height: 5rem;
+        justify-content: flex-end;
+        margin-bottom: 2.9rem;
+    }
+
+    .logo {
+        width: 8.3rem;
+        margin: 0 auto 0 0.58rem;
+    }
+
+    .hamburger-menu {
+        order: 1;
+    }
+
+    .hamburger-menu {
+        width: 1.3rem;
+        height: 1rem;
+        gap: 0.32rem;
+    }
+
+    .navbar > .profile-img {
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        order: 2;
+        border-radius: 50%;
+        background: white;
+        margin-right: 1.5rem;
+        margin-left: 2.2rem;
+    }
+
+    main {
+        padding: 0 1.5rem 2rem 1.5rem;
+    }
+
+    main .mobile {
+        display: none;
+    }
+
+    main .tablet {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.95rem;
+    }
+
+    .tablet-title h1 {
+        font-size: 3rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .tablet-title h2 {
+        font-size: 1.125rem;
+    }
+
+    .layout-options-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .layout-options-menu div {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1.2rem;
+        margin-top: -0.3rem;
+    }
+
+    .layout-options-menu div:first-of-type {
+        font-size: 0.9375rem;
+        align-self: flex-start;
+        gap: 0.8rem;
+    }
+
+    #cardsContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .game-card {
+        width: 22rem;
+        position: relative;
+    }
+
+    .game-card--img-container {
+        height: 11.1rem;
+        margin-bottom: 1.1rem;
+    }
+
+    .game-card--title-section {
+        margin-bottom: 1.7rem;
+    }
+
+    .game-card--title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .game-card--body {
+        display: flex;
+        padding: 0 1rem 0.45rem 1rem;
+    }
+
+    .game-card--info {
+        justify-content: flex-start;
+        gap: 0;
+    }
+
+    .game-card--info-release {
+        width: 6.5rem;
+    }
+
+    .game-card--info-content:first-of-type {
+        width: 6.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .game-card--info:last-of-type .game-card--info-content {
+        width: 14rem;
+    }
+
+    .platforms-container {
+        display: block;
+        position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 6.8rem;
+        bottom: 2.9rem;
+        right: 0.97rem;
+    }
+
+    .platforms-container svg {
+        width: 1rem;
+    }
+
+    .platforms-container svg:not(:last-of-type) {
+        margin-right: 0.7rem;
+    }
+
+    .platforms-container svg:nth-child(n + 5) {
+        display: none;
+    }
+
+    .game-card:not(:nth-last-child(-n + 2)) {
+        margin-bottom: 0.6rem;
+    }
+
+    #fading-bottom {
+        position: fixed;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%);
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 6.75rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .navbar {
+        height: 4.95rem;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+
+    .logo a {
+        line-height: 1.5rem;
+    }
+
+    .logo {
+        width: 11.125rem;
+        margin: 0 auto 0 0.65rem;
+    }
+
+    #searchIcon {
+        display: none;
+    }
+
+    .search-bar-desktop {
+        display: block;
+        position: relative;
+        width: 22.4rem;
+        margin-right: 26.5%;
+    }
+
+    .search-bar-desktop > input {
+        width: 100%;
+        padding: 0.95rem 0.5rem 0.95rem 2.5rem;
+        border-radius: 0.25rem;
+        border: none;
+        font-size: 1rem;
+    }
+
+    .search-bar-desktop > input:focus-visible {
+        outline: none;
+    }
+
+    .search-bar-desktop > #searchIcon {
+        display: block;
+        width: 1.5rem;
+        position: absolute;
+        top: 50%;
+        left: 0.5rem;
+        transform: translateY(-50%);
+    }
+
+    .logout-btn {
+        color: var(--primary-color-5);
+        text-decoration: none;
+    }
+
+    .navbar .profile-img {
+        margin-right: 2.5rem;
+        margin-left: 0.9rem;
+    }
+
+    main {
+        padding: 0 2.5rem 2rem 2.5rem;
+    }
+
+    main .tablet {
+        margin-bottom: 0.2rem;
+    }
+
+    .page-content-container {
+        display: flex;
+        gap: 1.2rem;
+    }
+
+    .main-menu {
+        display: block;
+        width: 100%;
+    }
+
+    .main-menu h3 {
+        font-size: 1.25rem;
+    }
+
+    .main-menu h4 {
+        font-size: 1.125rem;
+    }
+
+    .main-menu--main-pages {
+        margin-bottom: 2.5rem;
+    }
+
+    .main-menu--main-pages:not(:last-child) h3 {
+        margin-bottom: 1.2rem;
+    }
+
+    .main-menu--trending > div,
+    .main--menu-popular > div {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .main-menu--trending {
+        margin-bottom: 3.4rem;
+    }
+
+    .main-menu--trending > div:not(:last-of-type),
+    .main--menu-popular > div:not(:last-of-type) {
+        margin-bottom: 1.08rem;
+    }
+
+    .main--menu-popular > h3 {
+        margin-bottom: 1.5rem;
+    }
+
+    #cardsContainer {
+        gap: 1.5rem;
+    }
+
+    .game-card {
+        width: 22.4rem;
+    }
+
+    .game-card:not(:nth-last-child(-n + 2)) {
+        margin-bottom: 0;
+    }
+
+    .layout-options-menu div:last-of-type {
+        margin-top: 0.45rem;
+    }
+
+    .logout-btn {
+        display: block;
+    }
 }
