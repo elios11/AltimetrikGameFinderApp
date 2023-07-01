@@ -5,6 +5,7 @@
     const API_PATH = "https://api.rawg.io/api/";
     let cardsArray = [];
 
+    /* Fetches data from URL */
     async function getData(url) {
         const response = await fetch(url);
 
@@ -18,13 +19,15 @@
         return data;
     }
 
-    async function displayGames() {
-        cardsArray = await getData(`${API_PATH}games?key=${API_KEY}`)
+    /* Fetches games data and creates an HTML template to display it */
+    async function displayGames(url) {
+        cardsArray = await getData(url)
             .then((data) => data.results)
-            .catch((err) => err.message);
+            .catch((err) => err.message + "pop");
 
         let gamesTemplate = ``;
 
+        /* SVG tags definitions to use later in template */
         const PLATFORM_ICONS = {
             pc: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="desktop platform icon">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M24 11H11V1.84376L24 0V11ZM10 2V11H0V3.33438L10 2ZM10 12H0V20.519L10 22V12ZM11 21.9914V12H24V24L11 21.9914Z" fill="#515151"/>
@@ -72,51 +75,69 @@
                 </defs>
             </svg>`;
 
-        for (let i = 0; i < cardsArray.length; i++) {
+        const monthNames = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
+
+        let elements_count = cardsArray.length;
+
+        if (elements_count == 0) {
+            CARDS_CONTAINER.innerHTML = `<h1 class="wrong-search-fb">Couldn't find any games for your search...</h1>`;
+            return;
+        }
+
+        for (let i = 0; i < elements_count; i++) {
             let element = cardsArray[i];
             let genres = [];
             let platforms = [];
-            let releaseDate = element.released;
-            const date = new Date(releaseDate);
-            const monthNames = [
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December"
-            ];
+            let releaseDate = "No release data found...";
 
-            element.genres.forEach((genre) => genres.push(genre.name));
+            if (element.genres) {
+                element.genres.forEach((genre) => genres.push(genre.name));
+            } else {
+                genres.push("No genres data available...");
+            }
 
-            element.parent_platforms.forEach((platform) => {
-                if (PLATFORM_ICONS[platform.platform.slug]) {
-                    platforms.push(PLATFORM_ICONS[platform.platform.slug]);
-                }
-            });
+            if (element.parent_platforms) {
+                element.parent_platforms.forEach((platform) => {
+                    if (PLATFORM_ICONS[platform.platform.slug]) {
+                        platforms.push(PLATFORM_ICONS[platform.platform.slug]);
+                    }
+                });
+            } else {
+                platforms.push("No platforms data available...");
+            }
 
-            const day = date.getDate();
-            const month = monthNames[date.getMonth()];
-            const year = date.getFullYear();
-
-            releaseDate = `${month} ${day}, ${year}`;
+            /* Create formatted date for obtained data date */
+            if (element.released) {
+                const date = new Date(element.released);
+                const day = date.getDate();
+                const month = monthNames[date.getMonth()];
+                const year = date.getFullYear();
+                releaseDate = `${month} ${day}, ${year}`;
+            }
 
             //prettier-ignore
             gamesTemplate += `
                 <div class="game-card">
                     <div class="game-card--img-container">
-                        <img src="${element.background_image}" alt="${element.name} cover picture">
+                        <img src="${element.background_image || ""}" alt="${element.name || ""} cover picture">
                         ${favoriteHeart}
                     </div>
                     <div class="game-card--title-section">
-                        <h3 class="game-card--title">${element.name}</h3>
-                        <p class="game-card--id">#${element.id}</p>
+                        <h3 class="game-card--title">${element.name || ""}</h3>
+                        <p class="game-card--id">#${element.id || ""}</p>
                     </div>
                     <div class="game-card--body">
                         <div class="game-card--info-container">
@@ -142,5 +163,56 @@
         }
         CARDS_CONTAINER.innerHTML = gamesTemplate;
     }
-    displayGames();
+    displayGames(`${API_PATH}games?key=${API_KEY}`);
+
+    /* Activates toggling to show main menu in smaller screens */
+    function toggleMainMenu() {
+        document.body.classList.toggle("menu-open");
+        document
+            .querySelector("aside.main-menu")
+            .classList.toggle("show-mobile");
+    }
+    const HAMBURGER_MENU = document.getElementsByClassName("hamburger-menu")[0];
+    HAMBURGER_MENU.addEventListener("click", toggleMainMenu);
+
+    /* Searching game functionality */
+    function searchGame(url) {
+        displayGames(url);
+    }
+
+    function debounce(fn, delay = 1000) {
+        let timer;
+
+        return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                fn(...args);
+            }, delay);
+        };
+    }
+
+    const debouncedSearch = debounce(searchGame, 350);
+
+    const SEARCH_INPUT = document.getElementById("searchBar");
+    SEARCH_INPUT.addEventListener("input", (e) => {
+        debouncedSearch(
+            `${API_PATH}games?search=${e.target.value}&search_precise&page_size=20&key=${API_KEY}`
+        );
+    });
+
+    /* Change display layout of cards to single or multiple columns */
+    const SINGLE_COLUMN_BTN = document.getElementById("singleColumnBtn");
+    const MULTIPLE_COLUMN_BTN = document.getElementById("multipleColumnsBtn");
+
+    SINGLE_COLUMN_BTN.addEventListener("click", () => {
+        CARDS_CONTAINER.classList.add("multipleColumns");
+        SINGLE_COLUMN_BTN.classList.add("active");
+        MULTIPLE_COLUMN_BTN.classList.remove("active");
+    });
+
+    MULTIPLE_COLUMN_BTN.addEventListener("click", () => {
+        CARDS_CONTAINER.classList.remove("multipleColumns");
+        MULTIPLE_COLUMN_BTN.classList.add("active");
+        SINGLE_COLUMN_BTN.classList.remove("active");
+    });
 })();
