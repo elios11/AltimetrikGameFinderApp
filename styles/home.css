@@ -279,7 +279,7 @@ h2 {
 
 .placeholder {
     height: 15.5rem;
-    background-image: url("/img/Group\ 216.png");
+    background-image: url("/img/card-placeholder.png");
     background-repeat: no-repeat;
     background-size: cover;
     animation: fadingIn 3s;
@@ -631,6 +631,10 @@ body.light {
 
 body.light .navbar {
     background-color: #eaeaea;
+}
+
+body.light #searchIconMobile path {
+    fill: var(--neutral-color-2);
 }
 
 body.light .main-menu a {
