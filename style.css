@@ -22,6 +22,7 @@ p {
 
 body {
     font-family: "Archivo", sans-serif;
+    transition: color, background 0.2s;
 }
 
 input,
@@ -33,18 +34,19 @@ button:hover {
     opacity: 0.9;
 }
 
-.light-logo {
+body.light .light-logo {
+    display: block;
+}
+body.light .dark-logo {
     display: none;
 }
 
-@media (prefers-color-scheme: light) {
-    .light-logo {
-        display: block;
-    }
+body:not(.light) .dark-logo {
+    display: block;
+}
 
-    .dark-logo {
-        display: none;
-    }
+body:not(.light) .light-logo {
+    display: none;
 }
 
 @media (min-width: 1500px) {

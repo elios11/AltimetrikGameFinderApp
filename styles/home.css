@@ -6,6 +6,9 @@ body {
     color: var(--neutral-color-5);
 }
 
+.active-page {
+    color: var(--primary-color-1);
+}
 /* Navbar menu */
 .navbar {
     display: flex;
@@ -20,34 +23,22 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0;
-    width: 1.1rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     margin-left: 1.2rem;
     border: 0;
     background: transparent;
     gap: 0.25rem;
+    cursor: pointer;
 }
 
 .hamburger-menu div {
     background-color: white;
-    height: 0.125rem;
+    height: 2px;
     width: 100%;
     border-radius: 0.3rem;
     transition: all 0.5s;
     transform-origin: left;
-}
-
-.hamburger-menu div.active:first-child {
-    transform: rotate(45deg);
-}
-
-.hamburger-menu div.active:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-menu div.active:last-child {
-    transform: rotate(-45deg);
 }
 
 .logo {
@@ -59,10 +50,11 @@ body {
     display: block;
 }
 
-#searchIcon {
+#searchIconMobile {
     width: 1.5rem;
     height: 1.5rem;
     margin-right: 1rem;
+    cursor: pointer;
 }
 
 .search-bar-desktop {
@@ -74,6 +66,10 @@ body {
 }
 
 .navbar > .profile-img {
+    display: none;
+}
+
+#user-settings {
     display: none;
 }
 
@@ -165,6 +161,9 @@ h2 {
     background-color: #303030;
     width: 18rem;
     border-radius: 0.75rem;
+    cursor: pointer;
+    transition: width 0.5s;
+    transform-origin: center;
 }
 
 .game-card--img-container {
@@ -182,6 +181,10 @@ h2 {
 .game-card--img-container {
     position: relative;
     margin-bottom: 0.75rem;
+}
+
+.wrong-search-fb {
+    align-self: flex-start;
 }
 
 .favoriteHeart {
@@ -274,6 +277,24 @@ h2 {
     fill: white;
 }
 
+.placeholder {
+    height: 15.5rem;
+    background-image: url("/img/Group\ 216.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: fadingIn 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fadingIn {
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+}
 /* Tablet size */
 @media (min-width: 700px) {
     .navbar {
@@ -337,6 +358,10 @@ h2 {
         align-items: flex-end;
     }
 
+    #switchThemeBtn {
+        cursor: pointer;
+    }
+
     .layout-options-menu div {
         display: flex;
         align-items: center;
@@ -356,6 +381,10 @@ h2 {
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
+    }
+
+    .placeholder {
+        height: 19.5rem;
     }
 
     .game-card {
@@ -439,7 +468,7 @@ h2 {
     }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1024px) {
     .navbar {
         height: 4.95rem;
     }
@@ -457,7 +486,7 @@ h2 {
         margin: 0 auto 0 0.65rem;
     }
 
-    #searchIcon {
+    #searchIconMobile {
         display: none;
     }
 
@@ -465,7 +494,7 @@ h2 {
         display: block;
         position: relative;
         width: 22.4rem;
-        margin-right: 26.5%;
+        margin-right: auto;
     }
 
     .search-bar-desktop > input {
@@ -507,14 +536,33 @@ h2 {
         margin-bottom: 0.2rem;
     }
 
+    #singleColumnBtn,
+    #multipleColumnsBtn {
+        cursor: pointer;
+    }
+
+    #singleColumnBtn path,
+    #multipleColumnsBtn path {
+        transition: all 0.5s;
+        fill: #707070;
+    }
+
+    #cardsContainer.multipleColumns .game-card {
+        width: 43.5rem;
+    }
+
+    #cardsContainer.multipleColumns .game-card--img-container {
+        height: 19.88rem;
+    }
+
     .page-content-container {
         display: flex;
-        gap: 1.2rem;
+        gap: 4rem;
     }
 
     .main-menu {
         display: block;
-        width: 100%;
+        min-width: max-content;
     }
 
     .main-menu h3 {
@@ -526,6 +574,7 @@ h2 {
     }
 
     .main-menu--main-pages {
+        margin-top: 0;
         margin-bottom: 2.5rem;
     }
 
@@ -572,4 +621,61 @@ h2 {
     .logout-btn {
         display: block;
     }
+}
+
+/* Light Mode */
+body.light {
+    background-color: #f0f0f0;
+    color: var(--neutral-color-2);
+}
+
+body.light .navbar {
+    background-color: #eaeaea;
+}
+
+body.light .main-menu a {
+    color: var(--neutral-color-2);
+}
+
+body.light .game-card {
+    background-color: var(--neutral-color-5);
+}
+
+body.light .platforms-container svg path {
+    stroke: var(--neutral-color-3);
+    fill: var(--neutral-color-3);
+}
+
+body.light .game-card--info-content {
+    color: var(--neutral-color-2);
+}
+
+/* Switch layout SVG's light mode */
+body.light #multipleColumnsBtn path,
+body.light #singleColumnBtn path {
+    fill: #c4c4c4;
+}
+
+body.light #multipleColumnsBtn rect,
+body.light #singleColumnBtn rect {
+    fill: #e1e1e1;
+}
+
+body.light #multipleColumnsBtn.active path,
+body.light #singleColumnBtn.active path {
+    fill: var(--neutral-color-3);
+}
+
+/* Switch layout SVG's dark mode */
+body:not(.light) #multipleColumnsBtn.active path,
+body:not(.light) #singleColumnBtn.active path {
+    fill: #fffdf5;
+}
+
+body.light #fading-bottom {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        #f0f0f0 100%
+    );
 }
