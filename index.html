@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="styles/home.css" />
         <link rel="stylesheet" href="styles/hamburger-menu.css" />
+        <link rel="stylesheet" href="styles/modals-styling.css" />
         <title>Home | Game Finder</title>
     </head>
     <body>
@@ -20,14 +21,14 @@
                 <a href="/">
                     <img
                         class="logo dark-logo"
-                        src="/img/brand/dark-logo.svg"
+                        src="img/brand/dark-logo.svg"
                         alt="brand logo for dark theme"
                     />
                 </a>
                 <a href="">
                     <img
                         class="logo light-logo"
-                        src="/img/brand/light-logo.svg"
+                        src="img/brand/light-logo.svg"
                         alt="brand logo for light theme"
                     />
                 </a>
@@ -38,7 +39,7 @@
                       fill="white"
                 />
             </svg>
-            <div class="search-bar-desktop">
+            <div class="search-bar">
                 <!-- prettier-ignore -->
                 <svg id="searchIcon" aria-label="search icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5.0006C8.67392 5.0006 7.40215 5.52738 6.46447 6.46507C5.52678 7.40275 5 8.67452 5 10.0006C5 11.3267 5.52678 12.5985 6.46447 13.5361C7.40215 14.4738 8.67392 15.0006 10 15.0006C11.3261 15.0006 12.5979 14.4738 13.5355 13.5361C14.4732 12.5985 15 11.3267 15 10.0006C15 8.67452 14.4732 7.40275 13.5355 6.46507C12.5979 5.52738 11.3261 5.0006 10 5.0006ZM3 10.0006C3 8.89186 3.26338 7.79898 3.76843 6.81195C4.27349 5.82492 5.00578 4.97199 5.90501 4.32337C6.80423 3.67476 7.84467 3.24903 8.94064 3.08124C10.0366 2.91344 11.1568 3.00839 12.2089 3.35825C13.2609 3.70811 14.2149 4.30289 14.9921 5.09359C15.7693 5.8843 16.3476 6.84832 16.6794 7.90628C17.0111 8.96423 17.0868 10.0858 16.9001 11.1788C16.7135 12.2717 16.27 13.3047 15.606 14.1926L20.707 19.2926C20.8946 19.4801 21.0001 19.7345 21.0002 19.9997C21.0003 20.265 20.895 20.5195 20.7075 20.7071C20.52 20.8947 20.2656 21.0002 20.0004 21.0003C19.7351 21.0004 19.4806 20.8951 19.293 20.7076L14.193 15.6076C13.1525 16.3859 11.9159 16.8593 10.6217 16.9747C9.32741 17.0901 8.02658 16.843 6.86481 16.261C5.70304 15.679 4.72618 14.7852 4.0436 13.6795C3.36103 12.5738 2.99967 11.3 3 10.0006Z"
@@ -46,6 +47,7 @@
                     />
                 </svg>
                 <input id="searchBar" type="text" placeholder="Search games..." />
+                <img id="clearSearchBtn" src="img/components/close-x-btn.svg" alt="clear search button">
             </div>
             <a class="logout-btn" href="#">Logout</a>
             <div class="profile-img"></div>
@@ -76,7 +78,7 @@
                     </div>
                     <div>
                         <!-- prettier-ignore -->
-                        <svg id="multipleColumnsBtn" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg id="multipleColumnsBtn" class="active" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="40" height="40" rx="10" fill="#4A4A4A"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M27.5428 8.79993H13.257C11.6791 8.79993 10.3999 10.0791 10.3999 11.6571V15.9428C10.3999 17.5207 11.6791 18.7999 13.257 18.7999H27.5428C29.1207 18.7999 30.3999 17.5207 30.3999 15.9428V11.6571C30.3999 10.0791 29.1207 8.79993 27.5428 8.79993ZM11.8285 11.6571C11.8285 10.8681 12.4681 10.2285 13.2571 10.2285H27.5428C28.3318 10.2285 28.9714 10.8681 28.9714 11.6571V15.9428C28.9714 16.7318 28.3318 17.3714 27.5428 17.3714H13.2571C12.4681 17.3714 11.8285 16.7318 11.8285 15.9428V11.6571ZM13.257 21.6571H27.5428C29.1207 21.6571 30.3999 22.9362 30.3999 24.5142V28.7999C30.3999 30.3779 29.1207 31.6571 27.5428 31.6571H13.257C11.6791 31.6571 10.3999 30.3779 10.3999 28.7999V24.5142C10.3999 22.9362 11.6791 21.6571 13.257 21.6571ZM11.8285 24.5141C11.8285 23.7252 12.4681 23.0856 13.2571 23.0856H27.5428C28.3318 23.0856 28.9714 23.7252 28.9714 24.5141V28.7999C28.9714 29.5888 28.3318 30.2284 27.5428 30.2284H13.2571C12.4681 30.2284 11.8285 29.5888 11.8285 28.7999V24.5141Z"
                                   fill="#FFFDF5"
@@ -105,10 +107,10 @@
                         <a href="/">
                             <h3 class="active-page">Home</h3>
                         </a>
-                        <a href="/reviews">
+                        <a href="#">
                             <h3>Reviews</h3>
                         </a>
-                        <a href="/new-releases">
+                        <a href="#">
                             <h3>New Releases</h3>
                         </a>
                     </div>
@@ -144,7 +146,7 @@
                                 src="img/components/search.svg"
                                 alt="last searches"
                             />
-                            <h4>Last searches</h4>
+                            <h4 id="lastSearches">Last searches</h4>
                         </div>
                         <div>
                             <img
@@ -166,11 +168,17 @@
                     <div class="game-card placeholder"></div>
                     <div class="game-card placeholder"></div>
                 </div>
+                <dialog id="gameModal">
+                    <div id="closeGameModal"></div>
+                    <div class="gameModalBody"></div>
+                    <div class="gameImages"></div>
+                </dialog>
             </div>
         </main>
         <div id="fading-bottom"></div>
         
-        <script src="scripts/home.js"></script>
-        <script src="scripts/toggleTheme.js"></script>
+        <script type="module" src="scripts/home.js"></script>
+        <script type="module" src="scripts/showCardData.js"></script>
+        <script type="module" src="scripts/toggleTheme.js"></script>
     </body>
 </html>
