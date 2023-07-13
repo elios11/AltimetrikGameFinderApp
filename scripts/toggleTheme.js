@@ -1,15 +1,18 @@
+import isLocalEnabled from "./localStorageEnabled";
+
 (function () {
     "use strict";
-    const DARK_MODE_BTN_PATH = "../img/components/dark-mode-on.svg";
-    const LIGHT_MODE_BTN_PATH = "../img/components/dark-mode-off.svg";
+    const DARK_MODE_BTN_PATH = "img/components/dark-mode-on.svg";
+    const LIGHT_MODE_BTN_PATH = "img/components/dark-mode-off.svg";
     const SWITCH_BTN = document.getElementById("switchThemeBtn");
     let darkModeEnabled = false;
 
-    if (!localStorage) {
-        alert(
-            "Since you do not have Local Storage enabled, some functionalities could not work..."
-        );
-        return;
+    if (
+        !isLocalEnabled(
+            "You cannot store last searches without Local Storage/Cookies enabled"
+        )
+    ) {
+        return 0;
     }
 
     /* prettier-ignore */
