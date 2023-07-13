@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url("/img/login/bg_dark.png");
+    background-image: url("../img/login/bg_dark.png");
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -421,13 +421,13 @@ input.invalid:focus-visible {
 
 @media (width >= 1800px) {
     body {
-        background-image: url("/img/login/bg_dark_2x.png");
+        background-image: url("../img/login/bg_dark_2x.png");
     }
 }
 
 /* LIGHT THEME */
 body.light {
-    background-image: url("/img/login/bg_light.png");
+    background-image: url("../img/login/bg_light.png");
     color: var(--neutral-color-3);
 }
 
