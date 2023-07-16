@@ -158,8 +158,10 @@ body.menu-open {
     body.light.menu-open .logout-btn {
         color: var(--neutral-color-3);
     }
+}
 
-    @media (min-width: 700px) {
+@media (min-width: 700px) {
+    body.menu-open {
         .hamburger-menu {
             order: 1;
         }
