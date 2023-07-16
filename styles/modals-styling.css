@@ -1,5 +1,9 @@
 @import "colors.css";
 
+.no-overflow {
+    overflow: hidden;
+}
+
 /* Game modal */
 #gameModal {
     margin-top: 3.125rem;
@@ -14,10 +18,10 @@
     color: var(--neutral-color-5);
     border: none;
 
-    padding: 7rem 0 5rem 0;
+    padding: 7.2rem 0 5rem 0;
 }
 
-.gameModalBody {
+.gameModalBody > * {
     padding: 0 1rem;
 }
 
@@ -26,25 +30,13 @@
 }
 
 /* Close modal button */
-#closeGameModal {
-    height: 2rem;
-    width: 2rem;
-}
-
-#closeGameModal::before {
-    width: 100%;
-    height: 2px;
-}
-
-#closeGameModal::after {
-    width: 100%;
-    height: 2px;
+#closeModalBtn {
+    display: none;
 }
 
 /* Platforms */
 #gameModal .platforms {
     display: flex;
-    margin-top: 0.8rem;
     gap: 1rem;
 }
 
@@ -91,8 +83,9 @@
 #gameModal .description {
     margin-top: 1rem;
     display: -webkit-box;
+    line-height: 130%;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 10;
+    -webkit-line-clamp: 4;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -167,10 +160,11 @@ button.purchase-button {
 }
 
 /* Game images */
-.gameImages {
+div.gameImages {
     display: flex;
     flex-direction: column;
     gap: 0.81rem;
+    padding: 0;
 }
 
 .gameImages div {
@@ -181,13 +175,13 @@ button.purchase-button {
 
 .gameImages > div:first-of-type {
     width: 100%;
-    height: 11.3rem;
     position: relative;
 }
 
 .gameImages > div:first-of-type > img:first-child {
     width: 100%;
     height: 100%;
+    max-height: 100%;
 }
 
 .yt-play-btn {
@@ -201,4 +195,157 @@ button.purchase-button {
 .gameImages div img:not(.yt-play-btn) {
     width: 50%;
     height: 5.4rem;
+}
+
+/* Tablet size */
+@media (min-width: 700px) {
+    #gameModal {
+        border-radius: 1.5rem;
+        margin: 0.95rem 1.5rem 0.95rem 1.5rem;
+        max-width: calc(100% - 3rem);
+        max-height: calc(100% - 1.56rem - 1.5rem);
+        padding: 7.7rem 0 1.56rem 0;
+    }
+
+    .gameModalBody {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "platforms platforms"
+            "title title"
+            "badges badges"
+            "description description"
+            "buttons buttons"
+            "properties images"
+            "properties info";
+    }
+
+    /* Positioning of modal for tablet size */
+    #gameModal .platforms {
+        grid-area: platforms;
+    }
+
+    #gameModal h3 {
+        grid-area: title;
+    }
+
+    #gameModal .achievements {
+        grid-area: badges;
+    }
+
+    #gameModal .description {
+        grid-area: description;
+    }
+
+    #gameModal .buttons-container {
+        grid-area: buttons;
+    }
+
+    #gameModal .game-properties {
+        grid-area: properties;
+    }
+
+    #gameModal .gameImages {
+        grid-area: images;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    #gameModal .game-critics-container {
+        grid-area: info;
+        margin: 0 0 0 1rem;
+        padding: 0;
+        align-items: center;
+    }
+
+    .gameModalBody > * {
+        padding: 0 1.5rem;
+    }
+
+    /* Close modal button */
+    #closeModalBtn {
+        display: block;
+        position: absolute;
+        width: 3rem;
+        height: 3rem;
+        right: 1.5rem;
+        top: 1.5rem;
+    }
+
+    /* Platforms */
+    #gameModal .platforms svg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    /* Text */
+    #gameModal h3 {
+        font-size: 3rem;
+    }
+
+    /* Achievement badges */
+    .achievements {
+        justify-content: flex-start;
+    }
+
+    /* Game description */
+    #gameModal .description {
+        margin-top: 1.2rem;
+    }
+
+    /* Buttons */
+    #gameModal button {
+        width: 100%;
+        height: 2.975rem;
+    }
+
+    .add-to-wishlist-container {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    #gameModal button.purchase-button {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 0;
+        padding: 0.8rem 0;
+    }
+
+    .buttons-container {
+        display: flex;
+        gap: 2.06rem;
+        align-items: center;
+        margin-top: 1.44rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Game properties */
+    .game-property-container a,
+    .game-property-container p {
+        max-width: 100%;
+    }
+
+    .game-property-container p:first-child {
+        margin-bottom: 0.7rem;
+    }
+
+    /* Game images */
+    .gameImages {
+        margin-left: 1rem;
+    }
+
+    .gameImages div {
+        width: 100%;
+        padding-right: 1.5rem;
+    }
+
+    .gameImages > div:first-of-type {
+        height: 11.3rem;
+    }
+
+    .gameImages div img:not(.yt-play-btn) {
+        height: 5.38rem;
+    }
 }
