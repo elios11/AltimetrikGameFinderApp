@@ -1,4 +1,4 @@
-import isLocalEnabled from "./localStorageEnabled";
+import isLocalEnabled from "./localStorageEnabled.js";
 
 (function () {
     "use strict";
