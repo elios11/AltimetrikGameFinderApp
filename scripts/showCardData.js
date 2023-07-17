@@ -9,9 +9,9 @@ const MODAL = document.getElementById("gameModal");
 const MODAL_BODY = document.querySelector("#gameModal .gameModalBody");
 const MODAL_IMAGES = document.querySelector("#gameModal .gameImages");
 const CLOSE_MODAL_BTN = document.getElementById("closeModalBtn");
+let platformsSvg = [];
 
 function showGameInfo(gameData, gameScreenshots) {
-    let platformsSvg = [];
     let platforms = [];
     let releaseDate = "No release data found...";
     let genres = [];
@@ -40,6 +40,9 @@ function showGameInfo(gameData, gameScreenshots) {
     }
 
     if (gameData.parent_platforms) {
+        if (platformsSvg.length != 0) {
+            platformsSvg = [];
+        }
         gameData.parent_platforms.forEach((platform) => {
             if (PLATFORM_ICONS[platform.platform.slug]) {
                 platformsSvg.push(PLATFORM_ICONS[platform.platform.slug]);
@@ -75,9 +78,17 @@ function showGameInfo(gameData, gameScreenshots) {
             <div><span class="active-page">#1</span> TOP 2021</div>
             <div><span class="active-page">#9</span> RPG</div>
         </div>
-        <p class="description">
-            ${gameData.description_raw || "Game description was not found..."}
-        </p>
+        <div class="description-container">
+            <p class="description">
+                ${
+                    gameData.description_raw ||
+                    "Game description was not found..."
+                }
+            </p>
+            <p class="active-page" id="readMoreBtn">
+                Read more
+            </p>
+        </div>
         <div class="buttons-container">
             <div class="add-to-wishlist-container">
                 <button>Add to wishlist</button>
@@ -88,33 +99,33 @@ function showGameInfo(gameData, gameScreenshots) {
             </button>
         </div>
         <div class="game-properties">
-            <div class="game-property-container">
+            <div class="game-property-container platforms-name">
                 <p>Platforms</p>
                 <a href="#">${platforms.join(", ")}</a>
             </div>
-            <div class="game-property-container">
+            <div class="game-property-container release">
                 <p>Release date</p>
                 <p>${releaseDate}</p>
             </div>
-            <div class="game-property-container">
+            <div class="game-property-container publisher">
                 <p>Publisher</p>
                 <a href="#">
                     ${gameData.publishers[0]?.name || "No publishers found..."}
                 </a>
             </div>
-            <div class="game-property-container">
+            <div class="game-property-container website">
                 <p>Website</p>
                 <a href="${gameData.website || "#"}">${gameData.website}</a>
             </div>
-            <div class="game-property-container">
+            <div class="game-property-container genre">
                 <p>Genre</p>
                 <a href="#">${genres.join(", ")}</a>
             </div>
-            <div class="game-property-container">
+            <div class="game-property-container developer">
                 <p>Developer</p>
                 <a href="#">${developers.join(", ")}</a>
             </div>
-            <div class="game-property-container">
+            <div class="game-property-container age-rating">
                 <p>Age rating</p>
                 <p>${gameData.esrb_rating?.name || "Not rated"}</p>
             </div>
@@ -169,6 +180,7 @@ async function showModal(e) {
     showGameInfo(data, screenshots);
     MODAL.showModal();
     showFullDescription();
+    showFullDescriptionDesktop(data);
     document.body.classList.add("no-overflow");
     document.querySelector(".navbar").style.position = "sticky";
     document.querySelector(".navbar").style.zIndex = "999";
@@ -179,6 +191,7 @@ document.addEventListener("click", showModal);
 /* Close game modal */
 MODAL.addEventListener("close", () => {
     document.body.classList.remove("no-overflow");
+    MODAL.classList.remove("show-description");
 });
 
 CLOSE_MODAL_BTN.addEventListener("click", () => {
@@ -186,10 +199,47 @@ CLOSE_MODAL_BTN.addEventListener("click", () => {
 });
 
 /* Expand description */
+/* Mobile and tablet */
 function showFullDescription() {
     const MODAL_DESCRIPTION = document.querySelector("#gameModal .description");
 
     MODAL_DESCRIPTION.addEventListener("click", () => {
-        MODAL_DESCRIPTION.classList.toggle("expanded");
+        if (window.innerWidth < 1200) {
+            MODAL_DESCRIPTION.classList.toggle("expanded");
+        }
+    });
+}
+
+/* Desktop */
+function showFullDescriptionDesktop(gameData) {
+    const READ_MORE_BTN = document.getElementById("readMoreBtn");
+    const CURRENT_BODY = MODAL_BODY.innerHTML;
+
+    READ_MORE_BTN.addEventListener("click", () => {
+        MODAL.classList.add("show-description");
+        MODAL_BODY.innerHTML = `
+            <svg id="backArrow" width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Left Chevron">
+                <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M23.4589 6.97093C23.738 7.25004 23.8947 7.62855 23.8947 8.02321C23.8947 8.41787 23.738 8.79638 23.4589 9.07549L14.0926 18.4418L23.4589 27.8081C23.7301 28.0889 23.8801 28.4648 23.8767 28.8551C23.8733 29.2453 23.7168 29.6186 23.4408 29.8946C23.1649 30.1705 22.7915 30.3271 22.4013 30.3304C22.0111 30.3338 21.6351 30.1838 21.3544 29.9127L10.9358 19.4941C10.6567 19.215 10.5 18.8365 10.5 18.4418C10.5 18.0472 10.6567 17.6686 10.9358 17.3895L21.3544 6.97093C21.6335 6.6919 22.012 6.53516 22.4067 6.53516C22.8013 6.53516 23.1798 6.6919 23.4589 6.97093Z" fill="white"/>
+                </g>
+            </svg>
+            <div class="platforms">
+                ${platformsSvg.join("")}
+            </div>
+            <h3>${gameData.name || "Game name was not found..."}</h3>
+            <p class="description">
+                ${
+                    gameData.description_raw ||
+                    "Game description was not found..."
+                }
+            </p>
+        `;
+
+        const BACK_ARROW = document.getElementById("backArrow");
+        BACK_ARROW.addEventListener("click", () => {
+            MODAL.classList.remove("show-description");
+            MODAL_BODY.innerHTML = CURRENT_BODY;
+            showFullDescriptionDesktop(gameData);
+        });
     });
 }
