@@ -179,7 +179,7 @@ function showLatestSearches() {
     const TITLE_MOBILE = document.querySelector("h1.mobile");
     const SUBTITLE = document.querySelector(".tablet-title h2");
     const SUBTITLE_MOBILE = document.querySelector("h2.mobile");
-    const PREVIOUS_PAGE = document.querySelector(".active-page");
+    const PREVIOUS_PAGE = document.getElementById("homeLink");
 
     TITLE.textContent = "Latest searches";
     TITLE_MOBILE.textContent = "Latest searches";
