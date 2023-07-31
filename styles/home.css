@@ -912,6 +912,10 @@ body.light {
             #f0f0f0 100%
         );
     }
+
+    #clearLastSearchesBtn {
+        color: black;
+    }
 }
 
 /* Switch layout SVG's dark mode */
