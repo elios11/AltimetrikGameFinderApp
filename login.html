@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="styles/login.css" />
         <title>Login | Game Finder</title>
+        <script type="module" src="scripts/redirectUnloggedUser.js"></script>
     </head>
     <body>
         <img
@@ -73,7 +74,9 @@
                         Forgot password?
                     </a>
                 </div>
-                <button type="submit" id="loginBtn">Log in</button>
+                <button type="submit" class="primary-button" id="loginBtn">
+                    Log in
+                </button>
                 <div class="register-section">
                     <p>Not registered yet?</p>
                     <a href="/register.html">Register now</a>
@@ -115,6 +118,7 @@
                 </div>
             </div>
         </section>
+        <script src="script.js"></script>
         <script type="module" src="scripts/login.js"></script>
         <script type="module" src="scripts/toggleTheme.js"></script>
     </body>
