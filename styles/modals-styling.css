@@ -5,6 +5,12 @@
 }
 
 /* Game modal */
+body.modal-open {
+    position: sticky;
+    z-index: 999;
+    top: 0;
+}
+
 #gameModal {
     margin-top: 3.125rem;
     width: 100%;
@@ -22,6 +28,7 @@
 }
 
 #gameModal::backdrop {
+    margin-top: 3.125rem;
     background: rgba(0, 0, 0, 0.6);
 }
 
@@ -159,7 +166,10 @@ button.purchase-button {
 }
 
 .game-property-container a {
+    display: block;
     color: var(--primary-color-5);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .game-critics-container {
@@ -218,6 +228,10 @@ div.gameImages {
         max-width: calc(100% - 3rem);
         max-height: calc(100% - 1.5rem - 1.5rem);
         padding: 7.7rem 0 1.56rem 0;
+    }
+
+    #gameModal::backdrop {
+        margin: 0;
     }
 
     .gameModalBody {
@@ -340,6 +354,7 @@ div.gameImages {
     .game-property-container a,
     .game-property-container p {
         max-width: 100%;
+        width: max-content;
     }
 
     .game-property-container p:first-child {
@@ -497,5 +512,82 @@ div.gameImages {
 
     .gameImages div img:not(.yt-play-btn) {
         height: 6.5rem;
+    }
+}
+
+@media (500px < height < 900px) and (width > 1200px) {
+    #gameModal {
+        margin: 4.5rem 11.37rem 5rem 11.37rem;
+        max-width: calc(100% - 11.37rem - 11.37rem);
+        max-height: calc(100% - 4.5rem - 5rem);
+    }
+}
+
+@media (height > 1300px) {
+    .gameModalBody {
+        grid-template-columns: 1fr 1.5fr 2fr;
+        grid-template-areas:
+            "platforms platforms platforms"
+            "title title title"
+            "badges badges badges"
+            "description description description"
+            "buttons buttons images"
+            "properties properties images";
+    }
+
+    #gameModal .game-properties {
+        grid-template-columns: 15.5rem;
+    }
+
+    #gameModal .description {
+        -webkit-line-clamp: 9;
+    }
+
+    #gameModal .game-critics-container {
+        margin-bottom: 1.8rem;
+        margin-left: 1rem;
+    }
+}
+
+body.light {
+    #gameModal {
+        color: var(--neutral-color-2);
+        background-color: #fafafa;
+    }
+
+    #gameModal .platforms svg {
+        filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.5));
+    }
+
+    #gameModal h3 {
+        font-feature-settings: "clig" off, "liga" off;
+        text-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    #gameModal .description::selection {
+        background-color: #fcddec;
+    }
+
+    #gameModal.show-description {
+        & h3 {
+            color: var(--neutral-color-3);
+            text-shadow: none;
+        }
+
+        .platforms svg {
+            filter: none;
+
+            & path {
+                fill: var(--neutral-color-2);
+            }
+        }
+
+        #backArrow path {
+            fill: var(--neutral-color-3);
+        }
+
+        #closeModalBtn path {
+            fill: var(--neutral-color-3);
+        }
     }
 }
