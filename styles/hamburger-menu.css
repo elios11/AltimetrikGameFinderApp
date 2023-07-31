@@ -100,11 +100,11 @@ body.menu-open {
     }
 
     /* Logout btn */
-    .logout-btn {
+    #logoutBtn {
         display: block;
         position: absolute;
         bottom: 1.2rem;
-        left: 1.5rem;
+        left: 1.2rem;
         color: white;
         text-decoration: none;
         font: 400 normal 0.9375rem "Exo", sans-serif;
@@ -139,25 +139,31 @@ body.menu-open {
     }
 
     /* Light mode */
-    body.light .main-menu.show-mobile {
-        background: var(--neutral-color-5);
-    }
+    &.light {
+        .main-menu.show-mobile {
+            background-color: var(--neutral-color-5);
+        }
 
-    body.light .hamburger-menu div {
-        background: var(--neutral-color-2);
-    }
+        .hamburger-menu div {
+            background: var(--neutral-color-2);
+        }
 
-    body.light .profile-img {
-        background: var(--neutral-color-3);
-    }
+        .profile-img {
+            background: var(--neutral-color-3);
+        }
 
-    body.light .page-content-container .divisor {
-        background: #e4e4e4;
-    }
+        .page-content-container .divisor {
+            background: #e4e4e4;
+        }
 
-    body.light.menu-open .logout-btn {
-        color: var(--neutral-color-3);
+        &.menu-open #logoutBtn {
+            color: var(--neutral-color-3);
+        }
     }
+}
+
+body.light .hamburger-menu div {
+    background-color: var(--neutral-color-1);
 }
 
 @media (min-width: 700px) {
@@ -212,8 +218,8 @@ body.menu-open {
         }
 
         /* Logout btn */
-        .logout-btn {
-            left: 2.5rem;
+        #logoutBtn {
+            left: 2.1rem;
             bottom: 1.3rem;
         }
 
