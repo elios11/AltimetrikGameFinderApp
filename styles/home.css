@@ -62,8 +62,11 @@ body {
     display: none;
 }
 
-.logout-btn {
+#logoutBtn {
     display: none;
+    border: none;
+    cursor: pointer;
+    background: transparent;
 }
 
 .navbar > .profile-img {
@@ -117,10 +120,6 @@ h2 {
     margin-bottom: 0.9rem;
 }
 
-.main-menu--main-pages a:first-of-type {
-    color: var(--primary-color-1);
-}
-
 .main-menu h3 {
     font-size: 0.9215rem;
 }
@@ -154,6 +153,7 @@ h2 {
 #cardsContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     gap: 1rem;
 }
@@ -416,6 +416,62 @@ h2 {
     right: 0.5rem;
 }
 
+/* Logout Modal */
+#logoutModal[open] {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.75rem;
+}
+
+#logoutModal::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#logoutModalX {
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+#logoutModal:focus-visible {
+    outline: none;
+}
+
+#logoutModal h2 {
+    color: #000;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+#logoutModal h5 {
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+#logoutModal .primary-button {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+#cancelLogout {
+    font-size: 0.95rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+@media (500px < width < 700px) {
+    .game-card {
+        width: 27.5rem;
+    }
+}
+
 /* Tablet size */
 @media (min-width: 700px) {
     .navbar {
@@ -604,6 +660,36 @@ h2 {
     #cardsContainer.multipleColumns .game-card--img-container {
         height: 19.88rem;
     }
+
+    /* Logout Modal */
+    #logoutModal {
+        max-width: 65%;
+    }
+
+    #logoutModalX {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    #logoutModal h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.85rem;
+    }
+
+    #logoutModal h5 {
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+    }
+
+    #logoutModal .primary-button {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    #cancelLogout {
+        font-size: 1rem;
+        padding-bottom: 1rem;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -635,7 +721,7 @@ h2 {
         margin-right: auto;
     }
 
-    .logout-btn {
+    #logoutBtn {
         color: var(--primary-color-5);
         text-decoration: none;
     }
@@ -724,7 +810,7 @@ h2 {
         margin-top: 0.45rem;
     }
 
-    .logout-btn {
+    #logoutBtn {
         display: block;
     }
 
@@ -740,6 +826,36 @@ h2 {
 
     .latestSearchContainer {
         margin-left: 4rem;
+    }
+
+    /* Logout Modal */
+    #logoutModal {
+        max-width: 27%;
+    }
+
+    #logoutModalX {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    #logoutModal h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #logoutModal h5 {
+        font-size: 1rem;
+        padding: 0 1rem 0 1rem;
+    }
+
+    #logoutModal .primary-button {
+        font-size: 1.125rem;
+        padding: 0.8rem;
+    }
+
+    #cancelLogout {
+        font-size: 1.125rem;
+        padding-bottom: 1rem;
     }
 }
 
@@ -766,7 +882,6 @@ body.light {
     }
 
     .platforms-container svg path {
-        stroke: var(--neutral-color-3);
         fill: var(--neutral-color-3);
     }
 
