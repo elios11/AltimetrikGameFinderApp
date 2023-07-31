@@ -20,13 +20,10 @@
 
 -   [📒 Table of Contents](#-table-of-contents)
 -   [📍 Overview](#-overview)
--   [⚙️ Features](#-features)
--   [📂 Project Structure](#project-structure)
+-   [🔧 Features](#-features)
 -   [🧩 Modules](#modules)
 -   [🚀 Getting Started](#-getting-started)
 -   [🗺 Roadmap](#-roadmap)
--   [🤝 Contributing](#-contributing)
--   [📄 License](#-license)
 -   [👏 Acknowledgments](#-acknowledgments)
 
 ---
@@ -36,144 +33,75 @@
 Game Finder is a web application designed to provide users with an easy way to search for and view data about various games using the <a href="https://rawg.io/apidocs">RAWG API</a>. Whether you want to explore new games or find information about your favorite titles, Game Finder has got you covered.
 
 ---
+## 🔧 Features
 
-## ⚙️ Features
+### <h1>1. 📝 Register</h1>
 
-<style>
-    img {
-        border-radius:10px;
-    }
-    .group-of-images {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-</style>
-<h1 align="center">1.<br>👇<br><br>📝 Register</h1>
-<table>
-    <tr>
-        <td>
-            <h3>◦ Register a new account to access to the page (a default account was already created so you don't have to, more information will be provided in the login section).</h3>
-            <ul>
-                <li>Use <b>JSON Server Auth</b> to register you account into the database (please note that this is a mock database for front-end purposes, and its functionalities are limited and insecure).</li>
-                <li>See the account creation process in the <a href="https://shields.io/">Account creation Demo</a>.</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br>
-            <img src="img/doc-img/register.png" alt="register page">
-        </td>
-    </tr>
-</table>
-<br>
-<h1 align="center">2.<br>👇<br><br>🔑 Login</h1>
-<table>
-    <tr>
-        <td>
-            <h3>◦ Use <b>JSON Server Auth</b> to log into your new account.</h3>
-            <ul>
-                <li>Use of <em>session token</em> for authenticated created accounts.
-                <ul>
-                    <li>Default account created has the email: <b>exampleemail@gmail.com</b> and the password <b>password123</b>.</li>
-                    </li>
-                    <li>You are also welcome to log in with your own registered account.
-                    </li>
-                </ul>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br>
-            <img src="img/doc-img/login.png" alt="features">
-        </td>
-    </tr>
-</table>
-<br>
-<h1 align="center">3.<br>👇<br><br>🔎 Games searching</h1>
-<table>
-    <tr>
-        <td>
-            <h3>◦ Search for any games you want in the page</h3>
-            <ul>
-                <li>Get a fast response with a list of games with the name that you searches using the <b>RAWG API</b></li>
-            </
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br>
-            <img src="img/doc-img/search.png" alt="search example">
-        </td>
-    </tr>
-</table>
-<br>
-<h1 align="center">4.<br>👇<br><br>⏱️ Last Searches</h1>
-<table>
-    <tr>
-        <td>
-            <h3>◦ Use of <b>Local Storage</b> to store latest searches made.</h3>
-            <ul>
-                <li>Get a list of latest searches and click on any of them to return the search</li>
-            </
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="img/doc-img/last_searches.png" alt="last searches page">
-        </td>
-    </tr>
-</table>
+- Register a new account to access the page (a default account was already created, so you don't have to; more information will be provided in the login section).
+- Use **JSON Server Auth** to register your account into the database (please note that this is a mock database for front-end purposes, and its functionalities are limited and insecure).
+- See the account creation process in the [Account creation Demo](https://scribehow.com/shared/Create_your_GameFinder_account__boIPYb8xTb2z2FDXV3Ykxg).
 
-<h1 align="center">5.<br>👇<br><br>📱 Mobile/Tablet Friendly Design</h1>
-<table>
-    <tr>
-        <td>
-            <h3>You can use <b>Game Finder</b> from any of your devices!</h3>
-            <p>Example images about repsonsive design
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br>
-            <div class="group-of-images">
-                <img src="img/doc-img/mobile_home.png" alt="homepage in mobile size">
-                <img src="img/doc-img/mobile_menu.png" alt="nav menu in mobile size">
-                <img src="img/doc-img/tablet_home.png" alt="homepage in tablet size">
-                <br>
-            </div>
-        </td>
-    </tr>
-</table>
+![Register Page](img/doc-img/register.png)
+
 <br>
 
-<h1 align="center">6.<br>👇<br><br>🌓 Dark/Light mode support</h1>
-<table>
-    <tr>
-        <td>
-            <h3>Use <b>GameFinder</b> in the theme that you prefer!</h3>
-            <p>We set the theme to your computer preferred schema, but you can change it anytime you want from inside the app.</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div class="group-of-images">
-                <img src="img/doc-img/home_dark.png" alt="homepage in dark mode">
-                <img src="img/doc-img/tablet_dark.png" alt="tablet homepage in dark mode">
-                <br>
-            </div>
-        </td>
-    </tr>
-</table>
+### <h1>2. 🔑 Login</h1>
+
+- Use **JSON Server Auth** to log into your new account.
+- Use of _session token_ for authenticated created accounts.
+  - Default account created has the email: **exampleemail@gmail.com** and the password **password123**.
+  - You are also welcome to log in with your own registered account.
+
+![Login Page](img/doc-img/login.png)
+
+<br>
+
+### <h1>3. 🔎 Games Searching</h1>
+
+- Search for any games you want on the page.
+- Get a fast response with a list of games with the name that you search using the **RAWG API**.
+
+![Search Example](img/doc-img/search.png)
+
+<br>
+
+### <h1>4. ⏱️ Last Searches</h1>
+
+- Use of **Local Storage** to store latest searches made.
+- Get a list of latest searches and click on any of them to return to the search.
+
+![Last Searches Page](img/doc-img/last_searches.png)
+
+<br>
+
+### <h1>5. 📱 Mobile/Tablet Friendly Design</h1>
+
+- You can use **Game Finder** from any of your devices!
+- Example images about responsive design:
+
+<div align="center">
+  <img src="img/doc-img/mobile_home.png" alt="homepage in mobile size">
+  <img src="img/doc-img/mobile_menu.png" alt="nav menu in mobile size">
+  <img src="img/doc-img/tablet_home.png" alt="homepage in tablet size">
+</div>
+
+<br>
+
+### <h1>6. 🌓 Dark/Light Mode Support</h1>
+
+- Use **GameFinder** in the theme that you prefer!
+- We set the theme to your computer's preferred schema, but you can change it anytime you want from inside the app.
+
+<div align="center">
+  <img src="img/doc-img/home_dark.png" alt="homepage in dark mode">
+  <img src="img/doc-img/tablet_dark.png" alt="tablet homepage in dark mode">
+</div>
 
 ---
 
 <br>
 
-## 🧩 Modules
+## 🧩Modules
 
 <details closed><summary>Root</summary>
 
@@ -211,11 +139,11 @@ Game Finder is a web application designed to provide users with an easy way to s
 
 Before you begin, ensure that you have the following prerequisites installed:
 
-> -   `ℹ️  Make sure you have Node.js installed on your machine. You can download it from the official website: `<a href="https://nodejs.org/"><em>Node.js</em></a>.
-> -   `ℹ️ NPM (Node Package Manager) comes bundled with Node.js, so you should have it installed as well.`
-> -   `ℹ️ Install VSCode (Visual Studio Code) if you don't have it, it will work as a tool to open the app later.`
-> -   `ℹ️ Install `
->     <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a> `extension in VSCode.`
+- ℹ️ Make sure you have Node.js installed on your machine. You can download it from the official website: <a href="https://nodejs.org/"><em>Node.js</em></a>.
+- ℹ️ NPM (Node Package Manager) comes bundled with Node.js, so you should have it installed as well.
+- ℹ️ Install VSCode (Visual Studio Code) if you don't have it, it will work as a tool to open the app later.
+- ℹ️ Install [Live Server extension in VSCode](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
+
 
 ### 📦 Installation
 
@@ -241,7 +169,7 @@ npm install
 4. Start running Json-server-auth:
 
 ```sh
-npx json-server db.json -m ./node_modules/json-server-auth
+npx json-server-auth db.json -m ./node_modules/json-server-auth
 ```
 
 ### 🎮 Using AltimetrikGameFinderApp
@@ -250,8 +178,22 @@ npx json-server db.json -m ./node_modules/json-server-auth
 Click on Live Server on the bottom of VSCode to open the app in a browser, and you are in!
 ```
 
-## 👏 Acknowledgments
+## 🗺 Roadmap
 
-> -   `ℹ️  The design and idea of this project was made by ` <a href="https://altimetrik.com/">Altimetrik</a> `for their Become a Front End Developer with Altimetrik program.`
+- [x] ℹ️  Task 1: Create project on GitHub
+- [x] ℹ️  Task 2: Create Login Screen View
+- [x] ℹ️  Task 3: Add Login functionality
+- [x] ℹ️  Task 4: Connect with RAWG API
+- [x] ℹ️  Task 5: Create the card list with one column
+- [x] ℹ️  Task 6: Create the card list with three columns
+- [x] ℹ️  Task 7: Create the side bar
+- [x] ℹ️  Task 8: Create the header with search bar
+- [x] ℹ️  Task 9: Implement search game functionality
+- [x] ℹ️  Task 10: Add last searches functionality
+- [x] ℹ️  Task 11: Add Game Modal functionality
 
 ---
+
+## 👏 Acknowledgments
+
+- ℹ️  The design and idea of this project was made by [Altimetrik](https://altimetrik.com/) for their Become a Front End Developer with Altimetrik program.
