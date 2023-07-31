@@ -4,8 +4,6 @@ import PLATFORM_ICONS from "./platformIcons.js";
 import formattedDate from "./formattedDate.js";
 import isLocalEnabled from "./localStorageEnabled.js";
 
-const API_KEY = "ce0e55ad125d4dabba067f72f6fcfc66";
-const API_PATH = "https://api.rawg.io/api/";
 const MODAL = document.getElementById("gameModal");
 const MODAL_BODY = document.querySelector("#gameModal .gameModalBody");
 const CLOSE_MODAL_BTN = document.getElementById("closeModalBtn");
@@ -202,8 +200,8 @@ document.addEventListener("click", showModal);
 /* Close game modal */
 MODAL.addEventListener("close", () => {
     document.body.classList.remove("no-overflow");
+    document.body.classList.remove("modal-open");
     MODAL.classList.remove("show-description");
-    MODAL.classList.remove("modal-open");
 });
 
 MODAL.addEventListener("click", (e) => {
