@@ -5,7 +5,7 @@ import isLocalEnabled from "./localStorageEnabled.js";
     const DARK_MODE_BTN_PATH = "img/components/dark-mode-on.svg";
     const LIGHT_MODE_BTN_PATH = "img/components/dark-mode-off.svg";
     const SWITCH_BTN = document.getElementById("switchThemeBtn");
-    let darkModeEnabled = false;
+    let darkModeEnabled = true;
 
     if (
         !isLocalEnabled(
