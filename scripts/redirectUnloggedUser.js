@@ -10,7 +10,7 @@ import isLocalEnabled from "./localStorageEnabled.js";
         if (localStorage.getItem("sessionId") && ACCOUNT_MANAGEMENT_PATHS.includes(window.location.href)) {
             window.location.replace(APPLICATION_PATH);
         } 
-        else if (!ACCOUNT_MANAGEMENT_PATHS.includes(window.location.href)) {
+        else if (!localStorage.getItem("sessionId") && !ACCOUNT_MANAGEMENT_PATHS.includes(window.location.href)) {
             window.location.replace(LOGIN_PATH);
         }
         else {
