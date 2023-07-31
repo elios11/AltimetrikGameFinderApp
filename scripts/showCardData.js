@@ -2,12 +2,12 @@
 import { getData } from "./home.js";
 import PLATFORM_ICONS from "./platformIcons.js";
 import formattedDate from "./formattedDate.js";
+import isLocalEnabled from "./localStorageEnabled.js";
 
 const API_KEY = "ce0e55ad125d4dabba067f72f6fcfc66";
 const API_PATH = "https://api.rawg.io/api/";
 const MODAL = document.getElementById("gameModal");
 const MODAL_BODY = document.querySelector("#gameModal .gameModalBody");
-const MODAL_IMAGES = document.querySelector("#gameModal .gameImages");
 const CLOSE_MODAL_BTN = document.getElementById("closeModalBtn");
 let platformsSvg = [];
 
@@ -24,14 +24,27 @@ function showGameInfo(gameData, gameScreenshots) {
         3: defaultImgSrc,
         4: defaultImgSrc
     };
-
-    MODAL.style.backgroundImage = `
+    let modalBackground = `
     linear-gradient(
         180deg,
         rgba(48, 48, 48, 0),
         rgba(48, 48, 48, 1) 22.4rem
     ),
     url("${gameData.background_image}"`;
+
+    if (isLocalEnabled("")) {
+        if (localStorage.getItem("darkMode") === "false") {
+            modalBackground = `
+            linear-gradient(
+                180deg,
+                rgba(212, 212, 212, 0),
+                rgba(250, 250, 250, 1) 22.4rem
+            ),
+            url("${gameData.background_image}"`;
+        }
+    }
+
+    MODAL.style.backgroundImage = modalBackground;
 
     if (gameData.genres) {
         gameData.genres.forEach((genre) => genres.push(genre.name));
@@ -182,9 +195,7 @@ async function showModal(e) {
     showFullDescription();
     showFullDescriptionDesktop(data);
     document.body.classList.add("no-overflow");
-    document.querySelector(".navbar").style.position = "sticky";
-    document.querySelector(".navbar").style.zIndex = "999";
-    document.querySelector(".navbar").style.top = "0";
+    document.body.classList.add("modal-open");
 }
 document.addEventListener("click", showModal);
 
@@ -192,6 +203,19 @@ document.addEventListener("click", showModal);
 MODAL.addEventListener("close", () => {
     document.body.classList.remove("no-overflow");
     MODAL.classList.remove("show-description");
+    MODAL.classList.remove("modal-open");
+});
+
+MODAL.addEventListener("click", (e) => {
+    const dialongDimensions = MODAL.getBoundingClientRect();
+    if (
+        e.clientX < dialongDimensions.left ||
+        e.clientX > dialongDimensions.right ||
+        e.clientY < dialongDimensions.top ||
+        e.clientY > dialongDimensions.bottom
+    ) {
+        MODAL.close();
+    }
 });
 
 CLOSE_MODAL_BTN.addEventListener("click", () => {
