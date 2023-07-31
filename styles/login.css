@@ -423,25 +423,25 @@ input.invalid:focus-visible {
 body.light {
     background-image: url("../img/login/bg_light.png");
     color: var(--neutral-color-3);
-}
 
-body.light .login-card::before {
-    background-color: rgba(240, 240, 240, 0.8);
-}
+    .login-card::before {
+        background-color: rgba(240, 240, 240, 0.8);
+    }
 
-body.light #remember-info-label svg:first-of-type rect {
-    stroke: #8f8f8f;
-}
+    #remember-info-label svg:first-of-type rect {
+        stroke: #8f8f8f;
+    }
 
-body.light .divisor hr {
-    background-color: black;
-}
+    .divisor hr {
+        background-color: black;
+    }
 
-body.light .social-media-login button {
-    border-color: var(--primary-color-1);
-    color: var(--primary-color-1);
-}
+    .social-media-login button {
+        border-color: var(--primary-color-1);
+        color: var(--primary-color-1);
+    }
 
-body.light .social-media-login svg path {
-    fill: var(--primary-color-1);
+    .social-media-login svg path {
+        fill: var(--primary-color-1);
+    }
 }
