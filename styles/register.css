@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+
+#repeatedPassword[type="password"]:not(:placeholder-shown) {
+    font-size: 1rem;
+    padding: 0.94rem 2.2rem 0.94rem 1rem;
+}
+
+form {
+    gap: 1.7rem;
+}
+
+.password-container {
+    margin: 0;
+}
+
+.password-container {
+    margin-top: 0;
+}
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 28rem;
+}
+
+#repeatedPassword {
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: 2.5rem;
+}
+
+#registerBtn {
+    padding: 1rem;
+}
+
+.register-section p,
+.register-section a {
+    margin: 0;
+}
+
+.register-section {
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+@media (320px <= width <= 767px) {
+    .login-card {
+        height: 100vh;
+    }
+}
+
+@media (380px < width < 526px) and (height > 875px) {
+    html {
+        font-size: 20px;
+    }
+    .login-card {
+        width: 100%;
+        height: 100vh;
+        padding: 2rem;
+    }
+}
