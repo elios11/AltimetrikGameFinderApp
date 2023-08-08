@@ -33,9 +33,9 @@
 Game Finder is a web application designed to provide users with an easy way to search for and view data about various games using the <a href="https://rawg.io/apidocs">RAWG API</a>. Whether you want to explore new games or find information about your favorite titles, Game Finder has got you covered.
 
 ---
-## 🔧 Features
+### 🔧 Features
 
-### <h1>1. 📝 Register</h1>
+### 1. 📝 Register
 
 - Register a new account to access the page (a default account was already created, so you don't have to; more information will be provided in the login section).
 - Use **JSON Server Auth** to register your account into the database (please note that this is a mock database for front-end purposes, and its functionalities are limited and insecure).
@@ -45,7 +45,7 @@ Game Finder is a web application designed to provide users with an easy way to s
 
 <br>
 
-### <h1>2. 🔑 Login</h1>
+### 2. 🔑 Login
 
 - Use **JSON Server Auth** to log into your new account.
 - Use of _session token_ for authenticated created accounts.
@@ -56,7 +56,7 @@ Game Finder is a web application designed to provide users with an easy way to s
 
 <br>
 
-### <h1>3. 🔎 Games Searching</h1>
+### 3. 🔎 Games Searching
 
 - Search for any games you want on the page.
 - Get a fast response with a list of games with the name that you search using the **RAWG API**.
@@ -65,7 +65,7 @@ Game Finder is a web application designed to provide users with an easy way to s
 
 <br>
 
-### <h1>4. ⏱️ Last Searches</h1>
+### 4. ⏱️ Last Searches
 
 - Use of **Local Storage** to store latest searches made.
 - Get a list of latest searches and click on any of them to return to the search.
@@ -74,7 +74,7 @@ Game Finder is a web application designed to provide users with an easy way to s
 
 <br>
 
-### <h1>5. 📱 Mobile/Tablet Friendly Design</h1>
+### 5. 📱 Mobile/Tablet Friendly Design
 
 - You can use **Game Finder** from any of your devices!
 - Example images about responsive design:
@@ -87,7 +87,7 @@ Game Finder is a web application designed to provide users with an easy way to s
 
 <br>
 
-### <h1>6. 🌓 Dark/Light Mode Support</h1>
+### 6. 🌓 Dark/Light Mode Support
 
 - Use **GameFinder** in the theme that you prefer!
 - We set the theme to your computer's preferred schema, but you can change it anytime you want from inside the app.
@@ -96,7 +96,6 @@ Game Finder is a web application designed to provide users with an easy way to s
   <img src="img/doc-img/home_dark.png" alt="homepage in dark mode">
   <img src="img/doc-img/tablet_dark.png" alt="tablet homepage in dark mode">
 </div>
-
 ---
 
 <br>
@@ -196,4 +195,4 @@ Click on Live Server on the bottom of VSCode to open the app in a browser, and y
 
 ## 👏 Acknowledgments
 
-- ℹ️  The design and idea of this project was made by [Altimetrik](https://altimetrik.com/) for their Become a Front End Developer with Altimetrik program.
+- ℹ️  The design and idea of this project was made by [Altimetrik](https://altimetrik.com/) for their **_Become a Front End Developer with Altimetrik_ (BEFEDA)** program.
